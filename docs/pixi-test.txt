@@ -1,5 +1,5 @@
 1:HL["/slot-game/_next/static/css/2a411fb6a93988ff.css",{"as":"style"}]
-0:["NDwGP-Tsv39Ov8UAGmM0Z",[[["",{"children":["pixi-test",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/slot-game/_next/static/css/2a411fb6a93988ff.css","precedence":"next"}]],"$L3"]]]]
+0:["lb7UHyRqcS6yqSnSVHxfB",[[["",{"children":["pixi-test",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/slot-game/_next/static/css/2a411fb6a93988ff.css","precedence":"next"}]],"$L3"]]]]
 4:HL["/slot-game/_next/static/css/7e71a3226862c8b6.css",{"as":"style"}]
 5:I{"id":7767,"chunks":["272:static/chunks/webpack-c9f164e5414d4b72.js","971:static/chunks/fd9d1056-7f5d40cf21406b23.js","596:static/chunks/596-c9b955dac68d9e13.js"],"name":"default","async":false}
 6:I{"id":7920,"chunks":["272:static/chunks/webpack-c9f164e5414d4b72.js","971:static/chunks/fd9d1056-7f5d40cf21406b23.js","596:static/chunks/596-c9b955dac68d9e13.js"],"name":"default","async":false}
