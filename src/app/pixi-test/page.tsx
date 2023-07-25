@@ -45,15 +45,15 @@ function initSlots() {
 
   // Prepare slot textures
   const slots = [
-    Texture.from("/images/slot-1.png"),
-    Texture.from("/images/slot-2.png"),
-    Texture.from("/images/slot-3.png"),
-    Texture.from("/images/slot-4.png"),
-    Texture.from("/images/slot-5.png"),
-    Texture.from("/images/slot-6.png"),
-    Texture.from("/images/slot-7.png"),
-    Texture.from("/images/slot-8.png"),
-    Texture.from("/images/slot-9.png"),
+    Texture.from("/slot-game/images/slot-1.png"),
+    Texture.from("/slot-game/images/slot-2.png"),
+    Texture.from("/slot-game/images/slot-3.png"),
+    Texture.from("/slot-game/images/slot-4.png"),
+    Texture.from("/slot-game/images/slot-5.png"),
+    Texture.from("/slot-game/images/slot-6.png"),
+    Texture.from("/slot-game/images/slot-7.png"),
+    Texture.from("/slot-game/images/slot-8.png"),
+    Texture.from("/slot-game/images/slot-9.png"),
   ];
 
   // Prepare outline filter
