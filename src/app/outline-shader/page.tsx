@@ -1,30 +1,16 @@
 'use client';
 
 import './page.css';
-import * as PIXI from "pixi.js";
-import { Sprite, Texture, Ticker, Container, UPDATE_PRIORITY } from "pixi.js";
-import { useEffect, useRef } from "react";
-import { outlineFragmentShader, outlineOriginalShader, outlineVertexShader, smoothOutlineFragmentShader } from "./shaders/outline";
-import { addStats, Stats } from 'pixi-stats';
-import { Header } from '@/components/Header/Header';
+import { Sprite, Texture, Container, Application, Filter } from "pixi.js";
+import { outlineFragmentShader, outlineVertexShader } from "./shaders/outline";
+import GamePage from '@/components/GamePage/GamePage';
 
-let initialized = false;
-let initializedElement: HTMLElement;
-let app: PIXI.Application<HTMLCanvasElement>;
-
-/**
- * Show stats (fps, memory, draw calls etc)
- */
-function initStats() {
-  const stats = addStats(document, app);
-  const ticker = Ticker.shared;
-  ticker.add(stats.update, stats, UPDATE_PRIORITY.UTILITY);
-}
+let container: Container;
 
 /**
  * Initialize slots sprites
  */
-function initSlots() {
+function initSlots(app: Application) {
   // Calculate slot size and offset for game grid
   
   // grid size in x and y axis
@@ -57,17 +43,17 @@ function initSlots() {
   ];
 
   // Prepare outline filter
-  const outlineFilter = new PIXI.Filter(outlineVertexShader, outlineFragmentShader);
+  const outlineFilter = new Filter(outlineVertexShader, outlineFragmentShader);
 
   // Set the uniform values for the filter
   outlineFilter.uniforms.uResolution = new Float32Array([app.renderer.width, app.renderer.height]);
   outlineFilter.uniforms.uOutlineColor = new Float32Array([1.0, 1.0, 0.0, 0.1]); // color
-  outlineFilter.uniforms.uOutlineThickness = 1; // thickness
+  outlineFilter.uniforms.uOutlineThickness = 2; // thickness
   outlineFilter.uniforms.uOutlineAlphacut = 0.9; // alpha cut
   outlineFilter.uniforms.uSmoothness = 0.001; // smoothness
   
   // container for all slot sprites
-  const container = new Container();
+  container = new Container();
   // attach filter to the container for performance reasons
   // read about BatchRenderer that allows you to make batchable containers
   container.filters = [outlineFilter];
@@ -105,52 +91,22 @@ function initSlots() {
  * @param element Pixi app container
  * @returns 
  */
-function init(element: HTMLElement) {
-  if (initialized && element == initializedElement) return;
-
-  initialized = true;
-  initializedElement = element; 
-  element.innerHTML = "";
-
-  app = new PIXI.Application<HTMLCanvasElement>({ 
-    background: '#000', 
-    resizeTo: element,
-    antialias: true,
-  });
-
-  element.append(app.view);
-
-  app.ticker.add(update);
-
-  initSlots();
-  // initStats();
+function init(app: Application) {
+  initSlots(app);
 }
 
-function update() {
-  // console.log(app.ticker.FPS);
+function resize(app: Application) {
+  container && container.destroy();
+  initSlots(app);
 }
 
-/**
- * Just a default next.js home element with container for pixi
- * @returns 
- */
-export default function Home() {
-  var ref = useRef<any>();
-
-  useEffect(() => {
-    init(ref.current);
-  });
-
+export default function() {
   return (
-    <main className="flex min-h-screen flex-col items-center items-stretch">
-      <Header title='Slot Game grid (with custom outline shader)'></Header>
-
-      <div ref={ref} className="game-container flex flex-grow">Game will be here</div>
-
-      {/* <div className="game-footer">
-        <h1>Enjoy to play it!</h1>
-      </div> */}
-
-    </main>
-  )
+    <GamePage
+      title="Outline Shader"
+      // stats={true}
+      init={init}
+      resize={resize}
+    />
+  );
 }

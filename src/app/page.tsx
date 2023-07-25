@@ -9,7 +9,8 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col justify-center items-center">
-      <Link href="/pixi-test">Slot Game Grid (with custom outline shader)</Link>
+      <Link href="/carousel">Carousel</Link>
+      <Link href="/outline-shader">Outline Shader</Link>
     </main>
   )
 }

@@ -1,7 +1,8 @@
-import "./Header.css";
+import "./GamePageHeader.css";
+
 import Link from "next/link";
 
-export function Header({ children, title }: { children?: React.ReactNode, title?: string }) {
+export function GamePageHeader({ children, title }: { children?: React.ReactNode, title?: string }) {
     return (
         <div className="header-container">
             <div className="header-title flex flex-row justify-center items-center">
