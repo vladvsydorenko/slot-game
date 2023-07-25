@@ -1,12 +1,15 @@
 'use client';
 
+import './page.css';
 import * as PIXI from "pixi.js";
 import { Sprite, Texture, Ticker, Container, UPDATE_PRIORITY } from "pixi.js";
 import { useEffect, useRef } from "react";
 import { outlineFragmentShader, outlineOriginalShader, outlineVertexShader, smoothOutlineFragmentShader } from "./shaders/outline";
 import { addStats, Stats } from 'pixi-stats';
+import { Header } from '@/components/Header/Header';
 
 let initialized = false;
+let initializedElement: HTMLElement;
 let app: PIXI.Application<HTMLCanvasElement>;
 
 /**
@@ -103,9 +106,10 @@ function initSlots() {
  * @returns 
  */
 function init(element: HTMLElement) {
-  if (initialized) return;
+  if (initialized && element == initializedElement) return;
 
   initialized = true;
+  initializedElement = element; 
   element.innerHTML = "";
 
   app = new PIXI.Application<HTMLCanvasElement>({ 
@@ -139,16 +143,13 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center items-stretch">
-
-      <div className="game-header">
-        <h1>Burning Wins</h1>
-      </div>
+      <Header title='Slot Game grid (with custom outline shader)'></Header>
 
       <div ref={ref} className="game-container flex flex-grow">Game will be here</div>
 
-      <div className="game-footer">
+      {/* <div className="game-footer">
         <h1>Enjoy to play it!</h1>
-      </div>
+      </div> */}
 
     </main>
   )
