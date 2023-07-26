@@ -17,11 +17,17 @@ function initStats(app: Application) {
 }
 
 export interface IGamePageProps {
+  // user friendly title of the page shown in header
   title?: string;
-  titleContent?: React.ReactNode; 
+  // additional content for the header
+  header?: React.ReactNode; 
+  // whether to show stats
   stats?: boolean;
+  // called when pixi app is created and attached
   init?: (app: Application) => void;
+  // called each tick
   tick?: (app: Application) => void;
+  // called when pixi app is resized
   resize?: (app: Application) => void;
 }
 
@@ -29,7 +35,7 @@ export interface IGamePageProps {
  * Just a default next.js home element with container for pixi
  * @returns 
  */
-export default function GamePage({ title, titleContent, stats, init, tick, resize }: IGamePageProps) {
+export default function GamePage({ title, header: titleContent, stats, init, tick, resize }: IGamePageProps) {
     const ref = useRef<any>();
   
     useEffect(() => {

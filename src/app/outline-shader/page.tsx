@@ -2,7 +2,7 @@
 
 import './page.css';
 import { Sprite, Texture, Container, Application, Filter } from "pixi.js";
-import { outlineFragmentShader, outlineVertexShader } from "./shaders/outline";
+import { outlineFragmentShader, outlineVertexShader } from "../../shaders/outline";
 import GamePage from '@/components/GamePage/GamePage';
 
 let container: Container;

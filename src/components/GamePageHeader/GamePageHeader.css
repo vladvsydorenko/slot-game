@@ -1,6 +1,7 @@
-.header-container {
-}
-
 .header-back-link {
     background: #eee;
+}
+
+.header-back-link a {
+    display: block;
 }

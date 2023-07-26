@@ -27,10 +27,32 @@ body {
 main {
   padding: 0;
   margin: 0;
+  /* background: linear-gradient(to bottom, white 47%, black 50%); */
   /* background: #222222; */
 }
 
 h1 {
   padding: 0;
   margin: 0;
+}
+
+
+.main-links h1 {
+  /* padding: 1em; */
+  /* color: #eee; */
+  font-size: 2em;
+  padding: 1em;
+  text-align: center;
+  /* border-bottom: 2px solid #444; */
+}
+
+.main-links a {
+  padding: 1em;
+  text-align: center;
+}
+
+.main-links a:hover {
+  color: rgb(255, 240, 153);
+  text-shadow: 0 0 20px #eee;
+  background: #444;
 }

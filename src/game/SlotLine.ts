@@ -1,4 +1,4 @@
-import { Texture, Sprite, Application, Container } from "pixi.js";
+import { Texture, Sprite, Application, Container, DisplayObjectEvents } from "pixi.js";
 
 export class GameAssets {
     private _textures: {
