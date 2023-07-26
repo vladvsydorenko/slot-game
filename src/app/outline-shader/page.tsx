@@ -100,7 +100,7 @@ function resize(app: Application) {
   initSlots(app);
 }
 
-export default function() {
+export default function Page() {
   return (
     <GamePage
       title="Outline Shader"

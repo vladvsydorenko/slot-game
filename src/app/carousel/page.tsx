@@ -42,7 +42,7 @@ function resize(app: Application) {
 
 }
 
-export default function() {
+export default function Page() {
     return (
         <GamePage 
             title='Carousel'
