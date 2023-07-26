@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <main className="main-links flex min-h-screen flex-col justify-center items-stretch text-lg">
       <h1>Choose a demo</h1>
-      <Link href="/carousel">Reels</Link>
+      <Link href="/reels">Reels</Link>
       <Link href="/layout">Layout</Link>
       <Link href="/outline-shader">Outline Shader</Link>
     </main>
