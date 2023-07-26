@@ -4,6 +4,7 @@ import { Layout } from "./Layout";
 export class AppLayout extends Container {
     private _app: Application;
     private _layoutListener: () => void;
+    private _layoutTimeout: any;
 
     public get width() {
         return this._app.view.width;
@@ -23,7 +24,6 @@ export class AppLayout extends Container {
     }
 
     public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
-        console.log("get bounds");
         return new Rectangle(0, 0, this._app.view.width, this._app.view.height);
     }
 
@@ -41,7 +41,8 @@ export class AppLayout extends Container {
     }
 
     protected layout() {
-        this.layoutChildren(this);
+        clearTimeout(this._layoutTimeout);
+        setTimeout(() => this.layoutChildren(this), 100);
     }
 
     protected onAdded() {

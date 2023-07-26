@@ -60,7 +60,7 @@ function resize(app: Application) {
 export default function Page() {
     return (
         <GamePage 
-            title='Carousel'
+            title='Layout'
             stats={false}
             init={init}
             tick={tick}
