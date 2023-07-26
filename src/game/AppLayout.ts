@@ -40,7 +40,7 @@ export class AppLayout extends Container {
         }
     }
 
-    protected layout() {
+    public layout() {
         clearTimeout(this._layoutTimeout);
         setTimeout(() => this.layoutChildren(this), 100);
     }
